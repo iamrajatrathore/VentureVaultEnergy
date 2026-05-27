@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solar Query | Venture Vault Energy</title>
+    <meta name="description" content="Share your details with Venture Vault Energy for a rooftop solar consultation.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Venture Vault Energy home">
+        <img class="brand-logo" src="logo.jpg" alt="Venture Vault Energy logo" onerror="this.classList.add('is-hidden')">
+        <span class="brand-fallback">Venture Vault Energy</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#projects">Projects</a>
+      </nav>
+      <a class="header-cta" href="index.html">Back Home</a>
+    </header>
+
+    <main>
+      <section class="query-hero">
+        <div class="section-inner query-hero-grid">
+          <div>
+            <p class="eyebrow">Free solar consultation</p>
+            <h1>Tell us where to call and we will help you plan the right solar system.</h1>
+            <p>Share your contact details, current bill, and property type. We serve customers in Kanpur, Uttar Pradesh with clear solar consultation and callback support.</p>
+            <p class="eco-promise">One rooftop solar connection with Venture Vault Energy means 5 plants from us. You save electricity, and together we make India greener.</p>
+          </div>
+          <img src="assets/trees-sun-solar.svg" alt="Trees, sun, plants, and rooftop solar connection for a greener India">
+        </div>
+      </section>
+
+      <section class="query-section">
+        <div class="section-inner query-layout">
+          <form class="lead-form" data-lead-form>
+            <div class="form-heading">
+              <p class="eyebrow dark">Customer details</p>
+              <h2>Request a callback</h2>
+            </div>
+            <label>
+              <span>Full name</span>
+              <input name="name" autocomplete="name" placeholder="Enter customer name" required>
+            </label>
+            <label>
+              <span>Phone number</span>
+              <input name="phone" autocomplete="tel" inputmode="tel" placeholder="Enter phone number" required>
+            </label>
+            <label>
+              <span>City</span>
+              <input name="city" autocomplete="address-level2" placeholder="Your city">
+            </label>
+            <label>
+              <span>Monthly electricity bill</span>
+              <select name="bill">
+                <option value="">Select range</option>
+                <option>Rs. 2,000 - Rs. 5,000</option>
+                <option>Rs. 5,000 - Rs. 10,000</option>
+                <option>Rs. 10,000 - Rs. 25,000</option>
+                <option>Above Rs. 25,000</option>
+              </select>
+            </label>
+            <label>
+              <span>Property type</span>
+              <select name="property">
+                <option value="">Select property type</option>
+                <option>Independent home</option>
+                <option>Housing society</option>
+                <option>Commercial building</option>
+                <option>Factory or warehouse</option>
+              </select>
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="4" placeholder="Tell us anything important about your roof or requirement"></textarea>
+            </label>
+            <button class="button primary full" type="submit">Submit Query</button>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="lead-panel">
+            <div>
+              <p class="eyebrow dark">What happens next</p>
+              <h2>Fast follow-up, clear quote.</h2>
+              <ul class="check-list">
+                <li>Phone consultation with a solar expert</li>
+                <li>Bill and rooftop assessment</li>
+                <li>System size recommendation</li>
+                <li>Installation and maintenance plan</li>
+              </ul>
+            </div>
+            <div class="saved-leads">
+              <div class="saved-leads-header">
+                <h3>Captured enquiries</h3>
+                <button class="text-button" type="button" data-download-leads>Download CSV</button>
+              </div>
+              <div data-leads-list class="leads-list">
+                <p>No enquiries captured in this browser yet.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a class="brand footer-brand" href="index.html">
+          <img class="brand-logo" src="logo.jpg" alt="Venture Vault Energy logo" onerror="this.classList.add('is-hidden')">
+          <span class="brand-fallback">Venture Vault Energy</span>
+        </a>
+        <p>Reliable rooftop solar installation for homes, societies, and businesses.</p>
+        <a href="index.html">Home</a>
+      </div>
+      <div class="footer-legal">
+        <p>Copyright © 2026 Venture Vault Energy. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
