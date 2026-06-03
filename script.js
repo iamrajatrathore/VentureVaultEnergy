@@ -1,6 +1,6 @@
 (function () {
   const storageKey = "venture-vault-energy-leads";
-  const googleAppsScriptUrl = "https://script.google.com/u/0/home/projects/14EhJ7jg5fcFBoasgal0kXvVTinKmPFSiE2UMzNO26-TwsNLEo4H29D80/edit";
+  const googleAppsScriptUrl = "https://script.google.com/u/0/home/projects/14EhJ7jg5fcFBoasgal0kXvVTinKmPFSiE2UMzNO26-TwsNLEo4H29D80/edit/exec";
   const leadForms = document.querySelectorAll("[data-lead-form]");
   const leadList = document.querySelector("[data-leads-list]");
   const downloadButton = document.querySelector("[data-download-leads]");
