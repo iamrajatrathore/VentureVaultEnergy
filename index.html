@@ -58,7 +58,11 @@
             <p class="eyebrow dark">Talk to a solar expert</p>
             <h2>Share your name and phone number. We will call back with a clear quote.</h2>
           </div>
-          <form class="mini-lead-form" data-lead-form>
+          <form class="mini-lead-form" name="quick-solar-lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-lead-form data-netlify-submit>
+            <input type="hidden" name="form-name" value="quick-solar-lead">
+            <p class="hidden-field">
+              <label>Do not fill this field <input name="bot-field"></label>
+            </p>
             <label>
               <span>Name</span>
               <input name="name" autocomplete="name" placeholder="Your full name" required>
@@ -213,7 +217,7 @@
               <img class="crop-bottom" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rooftop_solar.jpg?width=700" alt="Residential rooftop solar panel installation">
             </figure>
             <figure class="project-card">
-              <img class="crop-right" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rooftop-solar-Polaron-solar.jpg?width=700" alt="Household rooftop solar panels installed for electricity">
+              <img class="crop-right" src="assets/kanpur-solar.svg" alt="Household rooftop solar panels installed for electricity">
             </figure>
             <figure class="project-card">
               <img class="crop-left" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rooftop_Solar_panels_on_homes_in_Mehsana,_Gujarat,_India_%2869514%29.jpg?width=700" alt="Solar panel setup on Indian home roofs">
@@ -222,11 +226,40 @@
               <img class="crop-center" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Solar_water_heater_installed_on_rooftop.jpg?width=700" alt="Solar equipment installed on an Indian house rooftop">
             </figure>
             <figure class="project-card">
-              <img class="crop-top" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Residential_Rooftop_Solar_System_%2832925635533%29.png?width=700" alt="Residential rooftop solar system installation">
+              <img class="crop-top" src="assets/trees-sun-solar.svg" alt="Residential rooftop solar system installation">
             </figure>
             <figure class="project-card">
               <img class="crop-bottom" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Solar_panels_in_India.jpg?width=700" alt="Solar panels installed in India">
             </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reviews-section" aria-label="Customer reviews">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow dark">Customer reviews</p>
+            <h2>People choose us for honest advice and careful installation.</h2>
+          </div>
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p>"The team explained the system size clearly and completed the rooftop work neatly. Our bill estimate was easy to understand."</p>
+              <strong>Amit Sharma</strong>
+              <span>Homeowner, Kanpur</span>
+            </article>
+            <article class="review-card">
+              <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p>"Venture Vault Energy helped us compare subsidy and EMI options without pressure. The callback and survey were quick."</p>
+              <strong>Priya Verma</strong>
+              <span>Residential customer</span>
+            </article>
+            <article class="review-card">
+              <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <p>"Good communication from quote to installation. The wiring and panel alignment looked professional on our building roof."</p>
+              <strong>Rohit Gupta</strong>
+              <span>Commercial rooftop owner</span>
+            </article>
           </div>
         </div>
       </section>

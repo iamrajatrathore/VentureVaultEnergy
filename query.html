@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Solar Query | Venture Vault Energy</title>
     <meta name="description" content="Share your details with Venture Vault Energy for a rooftop solar consultation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -30,13 +33,21 @@
             <p>Share your contact details, current bill, and property type. We serve customers in Kanpur, Uttar Pradesh with clear solar consultation and callback support.</p>
             <p class="eco-promise">One rooftop solar connection with Venture Vault Energy means 5 plants from us. You save electricity, and together we make India greener.</p>
           </div>
-          <img src="assets/trees-sun-solar.svg" alt="Trees, sun, plants, and rooftop solar connection for a greener India">
+          <div class="query-image-stage">
+            <img class="query-installation-image" src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1100&q=88" alt="Modern rooftop solar panel installation on a residential building">
+            <div class="query-image-badge top">Free rooftop survey</div>
+            <div class="query-image-badge bottom">Subsidy + EMI support</div>
+          </div>
         </div>
       </section>
 
       <section class="query-section">
         <div class="section-inner query-layout">
-          <form class="lead-form" data-lead-form>
+          <form class="lead-form" name="solar-query" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-lead-form data-netlify-submit>
+            <input type="hidden" name="form-name" value="solar-query">
+            <p class="hidden-field">
+              <label>Do not fill this field <input name="bot-field"></label>
+            </p>
             <div class="form-heading">
               <p class="eyebrow dark">Customer details</p>
               <h2>Request a callback</h2>
@@ -91,15 +102,6 @@
                 <li>System size recommendation</li>
                 <li>Installation and maintenance plan</li>
               </ul>
-            </div>
-            <div class="saved-leads">
-              <div class="saved-leads-header">
-                <h3>Captured enquiries</h3>
-                <button class="text-button" type="button" data-download-leads>Download CSV</button>
-              </div>
-              <div data-leads-list class="leads-list">
-                <p>No enquiries captured in this browser yet.</p>
-              </div>
             </div>
           </aside>
         </div>

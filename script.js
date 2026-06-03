@@ -3,7 +3,6 @@
   const googleAppsScriptUrl = "https://script.google.com/u/0/home/projects/14EhJ7jg5fcFBoasgal0kXvVTinKmPFSiE2UMzNO26-TwsNLEo4H29D80/edit/exec";
   const leadForms = document.querySelectorAll("[data-lead-form]");
   const leadList = document.querySelector("[data-leads-list]");
-  const downloadButton = document.querySelector("[data-download-leads]");
   const billInput = document.querySelector("[data-bill-input]");
   const systemSize = document.querySelector("[data-system-size]");
   const monthlySavings = document.querySelector("[data-monthly-savings]");
@@ -148,37 +147,6 @@
       }
     });
   });
-
-  if (downloadButton) {
-    downloadButton.addEventListener("click", () => {
-      const leads = readLeads();
-      if (!leads.length) return;
-
-      const headers = ["Name", "Phone", "City", "Bill", "Property", "Message", "Created At"];
-      const rows = leads.map((lead) => [
-        lead.name,
-        lead.phone,
-        lead.city,
-        lead.bill,
-        lead.property,
-        lead.message,
-        lead.createdAt
-      ]);
-      const csv = [headers, ...rows]
-        .map((row) => row.map((cell) => `"${String(cell || "").replace(/"/g, '""')}"`).join(","))
-        .join("\n");
-
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "venture-vault-energy-leads.csv";
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      URL.revokeObjectURL(url);
-    });
-  }
 
   function formatRupees(value) {
     return new Intl.NumberFormat("en-IN", {
