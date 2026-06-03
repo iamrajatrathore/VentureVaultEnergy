@@ -1,5 +1,6 @@
 (function () {
   const storageKey = "venture-vault-energy-leads";
+  const googleAppsScriptUrl = "https://script.google.com/u/0/home/projects/14EhJ7jg5fcFBoasgal0kXvVTinKmPFSiE2UMzNO26-TwsNLEo4H29D80/edit";
   const leadForms = document.querySelectorAll("[data-lead-form]");
   const leadList = document.querySelector("[data-leads-list]");
   const downloadButton = document.querySelector("[data-download-leads]");
@@ -8,7 +9,7 @@
   const monthlySavings = document.querySelector("[data-monthly-savings]");
   const yearlySavings = document.querySelector("[data-yearly-savings]");
   const revealTargets = document.querySelectorAll(
-    ".quick-form-band, .contact-strip, .support-highlight, .service-card, .trust-band, .process-grid article, .savings-band, .gallery-grid img, .director-message, .director-stats div, .final-cta, .query-section, .lead-panel"
+    ".quick-form-band, .contact-strip, .support-highlight, .service-card, .trust-band, .process-grid article, .savings-band, .gallery-grid img, .reviews-section, .review-card, .director-message, .director-stats div, .final-cta, .query-section, .lead-panel"
   );
 
   function readLeads() {
@@ -28,7 +29,7 @@
 
     const leads = readLeads();
     if (!leads.length) {
-      leadList.innerHTML = "<p>No enquiries captured in this browser yet.</p>";
+      leadList.innerHTML = "<p>No enquiries saved in this browser yet.</p>";
       return;
     }
 
@@ -75,8 +76,41 @@
     return lead.name.length >= 2 && phoneDigits.length >= 10;
   }
 
+  function encodeFormData(form) {
+    return new URLSearchParams(new FormData(form)).toString();
+  }
+
+  async function submitToNetlify(form) {
+    if (!form.matches("[data-netlify-submit]")) return true;
+
+    const response = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodeFormData(form)
+    });
+
+    return response.ok;
+  }
+
+  async function submitToGoogleSheet(lead) {
+    if (!googleAppsScriptUrl) return null;
+
+    await fetch(googleAppsScriptUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        ...lead,
+        pageUrl: window.location.href,
+        source: "Venture Vault Energy website"
+      })
+    });
+
+    return true;
+  }
+
   leadForms.forEach((form) => {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const status = form.querySelector("[data-form-status]");
       const lead = collectLead(form);
@@ -90,10 +124,27 @@
       leads.push(lead);
       writeLeads(leads);
       renderLeads();
-      form.reset();
 
       if (status) {
-        status.textContent = "Thank you. Your query has been captured for a callback.";
+        status.textContent = "Saving your query...";
+      }
+
+      try {
+        const googleSaved = await submitToGoogleSheet(lead);
+        const netlifySaved = googleSaved || await submitToNetlify(form);
+        form.reset();
+        if (status) {
+          status.textContent = googleSaved
+            ? "Thank you. Your query has been sent to our team."
+            : netlifySaved
+            ? "Thank you. Your query has been received for a callback."
+            : "Thank you. Your query is saved in this browser. Please call us if you do not receive a callback.";
+        }
+      } catch (error) {
+        form.reset();
+        if (status) {
+          status.textContent = "Thank you. Your query is saved in this browser. Please call us if you do not receive a callback.";
+        }
       }
     });
   });
